@@ -29,16 +29,16 @@ class App extends React.Component {
       } else {
         this.setState({view: 'DeployerOrAttacher'});
       }
-    async fundAccount(fundAmount); {
-        await reach.fundFromFaucet(this.state.acc, reach.parseCurrency(fundAmount));
-        this.setState({view: 'DeployerOrAttacher'});
-      }
-    async skipFundAccount(); { this.setState({view: 'DeployerOrAttacher'}); }
-      selectAttacher(); { this.setState({view: 'Wrapper', ContentView: Attacher}); }
-      selectDeployer(); { this.setState({view: 'Wrapper', ContentView: Deployer}); }
-      render(); { return renderView(this, AppViews); }
     }
-}
+    async fundAccount(fundAmount) {
+      await reach.fundFromFaucet(this.state.acc, reach.parseCurrency(fundAmount));
+      this.setState({view: 'DeployerOrAttacher'});
+    }
+    async skipFundAccount() { this.setState({view: 'DeployerOrAttacher'}); }
+    selectAttacher() { this.setState({view: 'Wrapper', ContentView: Attacher}); }
+    selectDeployer() { this.setState({view: 'Wrapper', ContentView: Deployer}); }
+    render() { return renderView(this, AppViews); }
+  }
 
 class Player extends React.Component {
     random() { return reach.hasRandom.random(); }
